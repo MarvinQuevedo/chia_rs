@@ -22,6 +22,8 @@ clvmr = "=0.3.0"
 hex = "=0.4.3"
 pyo3 = { version = ">=0.19.0", optional = true }
 clvm-utils = { version = "=0.2.7", path = "clvm-utils" }
+clvm-traits = { version = "=0.1.0", path = "clvm-traits" }
+clvm-derive = { version = "=0.1.0", path = "clvm-derive" }
 chia-protocol = { version = "=0.2.7", path = "chia-protocol" }
 hex-literal = "=0.4.1"
 thiserror = "1.0.44"
