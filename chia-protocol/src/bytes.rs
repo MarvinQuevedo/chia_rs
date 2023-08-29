@@ -34,6 +34,9 @@ impl Bytes {
     pub fn is_empty(&self) -> bool {
         self.0.is_empty()
     }
+    pub fn raw(&self) -> Vec<u8> {
+        self.0.clone()
+    }
 }
 
 impl Streamable for Bytes {
