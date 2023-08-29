@@ -10,7 +10,7 @@ cargo-fuzz = true
 
 [dependencies]
 libfuzzer-sys = "0.4"
-clvmr = "=0.3.0"
+clvmr =  { git = "https://github.com/MarvinQuevedo/clvm_rs.git"} 
 clvm-utils = { path = "../clvm-utils" }
 chia-protocol = { path = "../chia-protocol" }
 chia = { path = ".." }

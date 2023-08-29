@@ -29,6 +29,12 @@ impl Program {
     pub fn is_empty(&self) -> bool {
         self.0.is_empty()
     }
+    pub fn serialized_to_bytes(&self) -> Vec<u8> {
+        self.0.raw()
+    }
+    pub fn from_serialized_bytes(bytes: Vec<u8>) -> Self {
+        Self(Bytes::from(bytes))
+    }
 }
 
 impl Streamable for Program {
