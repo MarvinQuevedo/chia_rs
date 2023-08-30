@@ -178,6 +178,25 @@ impl fmt::Display for Bytes {
 #[derive(Hash, PartialEq, Eq, Copy, Clone, PartialOrd, Ord)]
 pub struct BytesImpl<const N: usize>([u8; N]);
 
+impl<const N: usize> BytesImpl<N> {
+    pub fn to_bytes(&self) -> Vec<u8> {
+        self.0.to_vec()
+    }
+    pub fn raw_sized(&self) -> [u8; N] {
+        self.0.clone()
+    }
+    pub fn raw(&self) -> &[u8] {
+        &self.0
+    }
+    pub fn from_hex<T: AsRef<[u8]>>(hex: T) -> Result<Self, std::io::Error> {
+        let bytes = hex::decode(hex).unwrap();
+
+        Ok(BytesImpl::<N>(
+            bytes[..N].try_into().expect("slice with incorrect length"),
+        ))
+    }
+}
+
 impl<const N: usize> Streamable for BytesImpl<N> {
     fn update_digest(&self, digest: &mut Sha256) {
         digest.update(self.0);
