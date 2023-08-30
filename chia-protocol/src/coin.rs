@@ -43,6 +43,9 @@ impl Coin {
 
         hasher.finalize().as_slice().try_into().unwrap()
     }
+    pub fn name(&self) -> Bytes32 {
+        Bytes32::from(self.coin_id())
+    }
 }
 
 #[cfg(feature = "py-bindings")]
